@@ -13,7 +13,14 @@ export default function validateCreditCard(cardNumber) {
   return isValid(cardNumber) === true;
 }
 
-//Task B,не для проверки
+//Task B
+
+export default function validateCardNumber(cardNumber) {
+  const formattedCardNumber = cardNumber.replace(/\s/g, '');//удаление пробелов
+  if (!/^\d+$/.test(formattedCardNumber)) {//только числа
+    return false;
+  }
+}
 
 export default function validateCardNumber(cardNumber) {//числа
   if (!/^\d+$/.test(formattedCardNumber)) {
@@ -21,13 +28,13 @@ export default function validateCardNumber(cardNumber) {//числа
   }
 }
 
-export default function validateCardmilen(cardNumber) {//длина
+export default function validateCardmilen(cardNumber) {//длина меньше
   if (formattedCardNumber.length < 12) {
     return false;
   }
 }
 
-export default function validateCardmalen(cardNumber) {//длина
+export default function validateCardmalen(cardNumber) {//длина больше
   if (formattedCardNumber.length > 19) {
     return false;
   }
