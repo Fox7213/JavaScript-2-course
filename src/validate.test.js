@@ -24,30 +24,30 @@ describe('validateCVV', () => {
 
 //Task B
 
-describe('validateCVV', () => {
+describe('validateCreditCardNumber', () => {
   it('Валидация номера карты не пропускает некорректный номер карты', () => {
-    const validNumber = '4242 4242 4242 4242';
-    expect(validateCVV(validNumber, '1234')).toBe(false);
+    const invalidCardNumber = '1234abcd5678efgh';
+    expect(validateCreditCardNumber(invalidCardNumber)).toBe(false);
   });
 });
 
-describe('validateCVV', () => {
+describe('validateCreditCardNumber', () => {
   it('Валидация номера карты не пропускает произвольную строку, содержащую любые нецифровые символы', () => {
-    const validNumber = '4242 4242 4242 4242';
-    expect(validateCVV(validNumber, '1234')).toBe(false);
+    const invalidCardNumber = '4242 4242 4242 test';
+    expect(validateCreditCardNumber(invalidCardNumber)).toBe(false);
   });
 });
 
-describe('validateCVV', () => {
+describe('validateCreditCardNumber', () => {
   it('Валидация номера карты не пропускает строку с недостаточным количеством цифр', () => {
-    const validNumber = '4242 4242 4242 4242';
-    expect(validateCVV(validNumber, '1234')).toBe(false);
+    const shortCardNumber = '1234 5678';
+    expect(validateCreditCardNumber(shortCardNumber)).toBe(false);
   });
 });
 
-describe('validateCVV', () => {
-  it('Валидация номера карты не пропускает строку со слишком большим количеством цифр.', () => {
-    const validNumber = '4242 4242 4242 4242';
-    expect(validateCVV(validNumber, '1234')).toBe(false);
+describe('validateCreditCardNumber', () => {
+  it('Валидация номера карты не пропускает строку со слишком большим количеством цифр', () => {
+    const longCardNumber = '1234 5678 9012 3456 7890 1234 5678';
+    expect(validateCreditCardNumber(longCardNumber)).toBe(false);
   });
 });
